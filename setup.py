@@ -1,11 +1,5 @@
 import os
-import pip
-from pip.req import parse_requirements
 from setuptools import find_packages, setup
-
-requirements = parse_requirements(
-    "requirements.txt", session=pip.download.PipSession())
-reqs = [str(ir.req) for ir in requirements]
 
 setup(
     name="influxdb_logging",
@@ -18,7 +12,7 @@ setup(
     license="MIT",
     packages=find_packages(),
     include_package_data=True,
-    install_requires=reqs,
+    install_requires=['influxdb'],
     setup_requires=[
         'pytest-runner'
     ],
